@@ -1,0 +1,11 @@
+{
+  "name": "player-list-ti",
+  "version": "1.0.0",
+  "description": "player-list to manage player",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alejo Sandoval",
+  "license": "ISC"
+}
