@@ -1,0 +1,21 @@
+---
+
+---
+
+<header class="text-white body-font shadow-xl rounded-b-xl">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center rounded-sm">
+      <button class="mr-5 text-black hover:text-gray-900 cursor-pointer" onclick="{anashe()}">Ver Jugadores</button>
+      <a class="mr-5 hover:text-gray-900 text-black cursor-pointer" href="/pagina">Agregar Jugadores</a>
+      <a class="mr-5 hover:text-gray-900 text-black cursor-pointer" onclick="{my_modal_1.showModal()}">Modificar Jugadores</a>
+      <a class="mr-5 hover:text-gray-90 text-black cursor-pointer">Eliminar Jugadores</a>
+    </nav>
+    <button class="inline-flex items-center bg-blue-500 border-0 py-2 px-5 focus:outline-none rounded text-base text-white mt-4 hover:bg-opacity-80">Sign up
+    </button>
+  </div>
+  <dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+      <slot />
+    </div>
+  </dialog>
+</header>

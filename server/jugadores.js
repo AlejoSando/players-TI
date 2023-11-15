@@ -1,23 +1,5 @@
-import { pool } from "./database"
+import { pool } from "./database.js"
 
-export interface jugador {
-    id: number,
-    nombre: string,
-    pos: string,
-    edad: number,
-    est: number,
-    p: number,
-    nac: string,
-    ap: number, 
-    sub: number,
-    a: number,
-    ga: number,
-    assis: number,
-    fc: number,
-    fs: number,
-    ta: number,
-    tr: number,
-} 
 
 export const getAllPlayers = async () => {
     try {
@@ -58,7 +40,7 @@ export const getAllByAltura = async () => {
     }
 }
 
-export const getOneByID = async (playerId: number) => {
+export const getOneByID = async (playerId) => {
     try {
         const [row] = await pool.query('SELECT * FROM jugadores WHERE id = ?', [playerId]);
       return row
@@ -67,7 +49,7 @@ export const getOneByID = async (playerId: number) => {
     }
 }
 
-export const addPlayer = async (player: jugador) => {
+export const addPlayer = async (player) => {
     try {
         const result = await pool.query('INSERT INTO jugadores SET ?', [player]);
         return result
@@ -76,7 +58,7 @@ export const addPlayer = async (player: jugador) => {
     }
 }
 
-export const modifyPlayer = async (player: jugador, id:number) => {
+export const modifyPlayer = async (player, id) => {
     try {
         const result = await pool.query('UPDATE jugadores SET ? WHERE id = ?', [player, id]);        
         return result
@@ -85,7 +67,7 @@ export const modifyPlayer = async (player: jugador, id:number) => {
     }
 }
 
-export const deletePlayer = async (id:number) => {
+export const deletePlayer = async (id) => {
     try {
         const result = await pool.query('DELETE FROM jugadores WHERE id = ?', [id]);        
         return result

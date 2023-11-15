@@ -1,0 +1,69 @@
+---
+import { type Jugador } from "../types/Jugador.type";
+const response = await fetch('http://localhost:3000/jugadores');
+const jugadores = await response.json();
+---
+
+<div class="overflow-x-auto">
+  <table class="table table-xs">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Est</th>
+        <th>P</th>
+        <th>NAC</th>
+        <th>Ap</th>
+        <th>SUB</th>
+        <th>A</th>
+        <th>GA</th>
+        <th>A</th>
+        <th>FC</th>
+        <th>FS</th>
+        <th>TA</th>
+        <th>TR</th>
+      </tr>
+    </thead>
+    <tbody>
+      {jugadores.map((jugador: Jugador) => (
+        <tr>
+          <td>{jugador.id}</td>
+          <td>{jugador.nombre}</td>
+          <td>{jugador.edad}</td>
+          <td>{jugador.est}</td>
+          <td>{jugador.p}</td>
+          <td>{jugador.nac}</td>
+          <td>{jugador.ap}</td>
+          <td>{jugador.sub}</td>
+          <td>{jugador.a}</td>
+          <td>{jugador.ga}</td>
+          <td>{jugador.assis}</td>
+          <td>{jugador.fc}</td>
+          <td>{jugador.fs}</td>
+          <td>{jugador.ta}</td>
+          <td>{jugador.tr}</td>
+        </tr>
+      ))}
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Est</th>
+        <th>P</th>
+        <th>NAC</th>
+        <th>Ap</th>
+        <th>SUB</th>
+        <th>A</th>
+        <th>GA</th>
+        <th>A</th>
+        <th>FC</th>
+        <th>FS</th>
+        <th>TA</th>
+        <th>TR</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

@@ -1,8 +1,8 @@
 import Fastify from 'fastify';
 import dotenv from 'dotenv';
 import cors from '@fastify/cors';
-import { PORT } from './config';
-import { addPlayer, getAllArgentinians, getAllPlayers, getOneByID, jugador, modifyPlayer } from './jugadores';
+import { PORT } from './config.js';
+import { addPlayer, getAllArgentinians, getAllPlayers, getOneByID, modifyPlayer } from './jugadores.js';
 
 dotenv.config();
 
@@ -21,20 +21,20 @@ fastify.get('/jugadores/argentinos', async (req, res) => {
 });
 
 fastify.post('/jugadores/:id', async (req, res) => {
-  const id: number = req.params.id;
+  const id = req.params.id;
   const jugadorInsertado = await getOneByID(id);
   res.send(jugadorInsertado);
 });
 
 fastify.post('/jugadores/agregar', async (req, res) => {
-  const jugador: jugador = req.body.jugador;
+  const jugador = req.body.jugador;
   const jugadorInsertado = await addPlayer(jugador);
   res.send(jugadorInsertado);
 });
 
 fastify.put('/jugadores/modificar', async (req,res) => {
-  const jugador: jugador = req.body.jugador;
-  const id: number = req.params.id;
+  const jugador = req.body.jugador;
+  const id = req.params.id;
     await modifyPlayer(jugador,id)
     res.send({message:'Jugador modificado exitosamente'})
 })
